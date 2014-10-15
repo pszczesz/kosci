@@ -5,6 +5,7 @@ namespace GameLibrary.GameTools {
     public class GameCube {
         public IList<int> ThrowHistory { get; private set; }
         private ICube _cube;
+        public bool CanThrowCube { get; set; }
 
         public GameCube(int howMany) {
             ThrowHistory = new List<int>();

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Text;
 using System.Collections.Generic;
 using GameLibrary.GameTools;
@@ -32,7 +33,7 @@ namespace TestGameLibrary
             const int howMany = 6;
             ICube cube = new Cube(howMany);
             int result;
-            for (int i = 0; i < 30; i++) {
+            for (int i = 0; i < 300; i++) {
                 result = cube.GetResult();
                 if (result < 1 || result > howMany) {
                     isOk = false;
@@ -45,15 +46,14 @@ namespace TestGameLibrary
         [TestMethod]
         public void CanIReachMaxValue() {
             bool isOk = false;
-            const int howMany = 6;
+            const int howMany = 1;
             ICube cube = new Cube(howMany);
-            for (int i = 0; i < 10000; i++) {
+            for (var i = 0; i < 1000; i++) {
                 int result = cube.GetResult();
-                if ( result == howMany)
-                {
-                    isOk = true;
-                    break;
-                }
+                Console.WriteLine(result);
+                if (result != howMany) continue;
+                isOk = true;
+                break;
             }
             Assert.IsTrue(isOk);
         }
