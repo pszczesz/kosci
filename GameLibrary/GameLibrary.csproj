@@ -41,8 +41,11 @@
   <ItemGroup>
     <Compile Include="Abstract\IGame.cs" />
     <Compile Include="Abstract\IThrow.cs" />
+    <Compile Include="Abstract\IThrowHistory.cs" />
     <Compile Include="Concrete\Game.cs" />
     <Compile Include="Concrete\GameLauncher.cs" />
+    <Compile Include="Concrete\ThrowCubes.cs" />
+    <Compile Include="Concrete\ThrowCubesHistory.cs" />
     <Compile Include="GameTools\Cube.cs" />
     <Compile Include="GameTools\FakeCube.cs" />
     <Compile Include="GameTools\GameCube.cs" />
