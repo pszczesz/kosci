@@ -3,8 +3,8 @@ using GameLibrary.GameTools;
 
 namespace GameLibrary.Abstract {
     public interface IThrow {
-        IList<GameCube> LastThrow { get;  }
-        void PerformOneThrow(IList<GameCube> gameCubes);
+        IList<GameCube> Cubes { get;  }
+        void PerformOneThrow(int how=-1);
         int GetLastThrowScore();
     }
 }

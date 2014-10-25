@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using GameLibrary.Abstract;
 
 namespace GameLibrary.Concrete {
@@ -13,7 +14,7 @@ namespace GameLibrary.Concrete {
         }
 
         public int GetAllThrowsScore() {
-            throw new System.NotImplementedException();
+            return _getThrowHistory.Sum(item => item.GetLastThrowScore());
         }
     }
 }

@@ -1,20 +1,23 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using GameLibrary.Abstract;
 using GameLibrary.GameTools;
 
 namespace GameLibrary.Concrete {
     public class ThrowCubes :IThrow{
-        public ThrowCubes() {
-            _lastThrow = new List<GameCube>();
+        public ThrowCubes(IList<GameCube> cubes ) {
+            this.cubes = cubes;
         }
-        private IList<GameCube> _lastThrow;
+        private IList<GameCube> cubes;
 
-        public IList<GameCube> LastThrow {
-            get { return _lastThrow; }
+        public IList<GameCube> Cubes {
+            get { return cubes; }
         }
 
-        public void PerformOneThrow(IList<GameCube> gameCubes) {
-            throw new System.NotImplementedException();
+        public void PerformOneThrow(int how=-1) {
+            foreach (var gameCube in Cubes) {
+                gameCube.PerformOneThrow(how);
+            }
         }
 
         public int GetLastThrowScore() {
