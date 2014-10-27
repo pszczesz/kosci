@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace GameLibrary.GameTools {
@@ -18,6 +19,7 @@ namespace GameLibrary.GameTools {
 
         public void PerformOneThrow(int how=-1) {
             int resultThrow = _cube.GetResult(how);
+           // Console.WriteLine("wylosowano: "+resultThrow);
             ThrowHistory.Add(resultThrow);
         }
 
