@@ -19,7 +19,7 @@ namespace GameLibrary.GameTools {
 
         public void PerformOneThrow(int how=-1) {
             int resultThrow = _cube.GetResult(how);
-            Console.WriteLine("wylosowano: "+resultThrow);
+           // Console.WriteLine("wylosowano: "+resultThrow);
             ThrowHistory.Add(resultThrow);
         }
 
