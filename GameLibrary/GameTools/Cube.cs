@@ -8,13 +8,17 @@ namespace GameLibrary.GameTools {
         int HowMany { get; }
     }
     public class Cube:ICube {
-        public Cube(int howMany) {
+        private Random random;
+        public Cube(int howMany, Random random) {
+            this.random = random;
             HowMany = howMany<0?-howMany:howMany;
             HowMany = HowMany == 0 ? 1 : HowMany;
         }
 
         public int GetResult(int expected = -1) {
-            return expected == -1 ? new Random().Next(1, HowMany + 1) : expected;
+            int wynik =  expected == -1 ? random.Next(1, HowMany + 1) : expected;
+            //Console.WriteLine(" wynik = "+wynik);
+            return wynik;
         }
 
         public int HowMany { get; private set; }

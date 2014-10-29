@@ -16,7 +16,12 @@ namespace GameLibrary.Concrete {
 
         public void PerformOneThrow(int how=-1) {
             foreach (var gameCube in Cubes) {
-                gameCube.PerformOneThrow(how);
+                if (gameCube.CanThrowNextTime()) {
+                    gameCube.PerformOneThrow(how);
+                }
+                else {
+                    gameCube.CanThrowCube = false;
+                }
             }
         }
 
