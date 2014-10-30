@@ -1,13 +1,20 @@
 ﻿using System;
+using GameLibrary.Abstract;
+using GameLibrary.Concrete;
 using GameLibrary.GameTools;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TestGameLibrary {
     [TestClass]
     public class GameCubeTest {
+        private IGame game;
+        [TestInitialize]
+        public void SetGamePrepare() {
+            game = new Game();
+        }
         [TestMethod]
         public void CanAddOneThrow() {
-            var gc = new GameCube(6);
+            GameCube gc = game.Cubes[0];
             gc.PerformOneThrow();
             int actual = gc.HowManyThrowWas();
             int expepcted = 1;
@@ -16,8 +23,8 @@ namespace TestGameLibrary {
 
         [TestMethod]
         public void CanGetLastResult() {
-            ICube cube = new Cube(6);
-            var gc = new GameCube(cube.HowMany);
+
+            var gc = game.Cubes[0];
             int expected = 3;
             gc.PerformOneThrow(expected);
             int last = gc.GetLastThrowResult();
@@ -26,7 +33,7 @@ namespace TestGameLibrary {
 
         [TestMethod]
         public void CanGetCountThrows() {
-            var gameCube = new GameCube(6);
+            GameCube gameCube =game.Cubes[0];
             gameCube.PerformOneThrow();
             gameCube.PerformOneThrow();
             gameCube.PerformOneThrow();
@@ -37,7 +44,7 @@ namespace TestGameLibrary {
 
         [TestMethod]
         public void CanGetWhenNoAnyThrow() {
-            var gameCube = new GameCube(6);
+            GameCube gameCube = game.Cubes[0];
             int expected = 0;
             int actual = gameCube.HowManyThrowWas();
             Assert.AreEqual(expected, actual);
@@ -45,7 +52,7 @@ namespace TestGameLibrary {
 
         [TestMethod]
         public void CanGetRanomResultFromGamecube() {
-            var gameCube = new GameCube(6);
+            GameCube gameCube = game.Cubes[0];
             for (int i = 0; i < 10; i++) {
                 gameCube.PerformOneThrow();
                 int result = gameCube.GetLastThrowResult();
@@ -53,6 +60,22 @@ namespace TestGameLibrary {
                 Assert.IsTrue(result>=1 && result<=6);
             }
         }
+
+        [TestMethod]
+        public void GameCubeCanThrowOnStart() {
+            GameCube gameCube = new GameCube(new Cube(5,new Random()));
+            Assert.IsTrue(gameCube.CanThrowNextTime());
+        }
+
+        [TestMethod]
+        public void CanThrowGameCubeWhenWanted() {
+            GameCube gameCube = new GameCube(new Cube(5, new Random()));
+            gameCube.PerformOneThrow();
+            gameCube.CanThrowCube = true;
+            Assert.IsTrue(gameCube.CanThrowNextTime());
+        }
+
+      
 
     }
 }
