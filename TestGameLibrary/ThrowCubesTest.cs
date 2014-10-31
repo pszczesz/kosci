@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using GameLibrary.Abstract;
 using GameLibrary.Concrete;
+using GameLibrary.GameTools;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TestGameLibrary
@@ -79,6 +82,43 @@ namespace TestGameLibrary
             throwCubes.PerformOneThrow();
             bool isOk = throwCubes.Cubes.All(gameCube => gameCube.CanThrowNextTime());
             Assert.IsTrue(isOk);
+        }
+
+        [TestMethod]
+        public void CantThrowFirstCubeAfterOneThrow() {
+            IGame game = new Game();
+            var throwCubes = new ThrowCubes(game.Cubes);
+            throwCubes.PerformOneThrow(); 
+            var results1= throwCubes.GetLastScoreForAllCubes();
+            foreach (var result in results1)
+            {
+                Console.WriteLine("Kostka o ID: " + result.CubeID + " dała wynik: " + result.ThrowResult);
+            }
+            throwCubes.Cubes[0].WillThrowNextTime = false;
+            bool isOk = throwCubes.Cubes.All(gc => gc.CanThrowNextTime());
+            Assert.IsFalse(isOk);
+            throwCubes.PerformOneThrow();
+            var results2 = throwCubes.GetLastScoreForAllCubes();
+            foreach (var result in results2)
+            {
+                Console.WriteLine("Kostka o ID: " + result.CubeID + " dała wynik: " + result.ThrowResult);
+            }
+            Assert.IsFalse(throwCubes.Cubes[0].WillThrowNextTime);
+        }
+
+        [TestMethod]
+        public void CantThrowCubeWhenNoThrowInLastThrow() {
+            IGame game = new Game();
+            var throwCubes = new ThrowCubes(game.Cubes);
+            throwCubes.PerformOneThrow();
+            throwCubes.Cubes[0].WillThrowNextTime = false;
+            throwCubes.PerformOneThrow();
+            IList<ThrowResults> results = throwCubes.GetLastScoreForAllCubes();
+            foreach (var result in results) {
+                Console.WriteLine("Kostka o ID: "+result.CubeID+" dała wynik: "+result.ThrowResult);
+            }
+            Console.WriteLine("Całkowity wynik: "+throwCubes.GetLastThrowScore());
+            Assert.IsFalse(throwCubes.Cubes[0].WillThrowNextTime);
         }
     
     }

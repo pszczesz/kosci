@@ -4,7 +4,8 @@ using GameLibrary.Abstract;
 using GameLibrary.GameTools;
 
 namespace GameLibrary.Concrete {
-    public class ThrowCubes :IThrow{
+    public class ThrowCubes :IThrow {
+        public const int CUBE_DONT_THROW_SCORE = -99;
         public ThrowCubes(IList<GameCube> cubes ) {
             this.cubes = cubes;
         }
@@ -20,13 +21,19 @@ namespace GameLibrary.Concrete {
                     gameCube.PerformOneThrow(how);
                 }
                 else {
+                    gameCube.PerformOneThrow(CUBE_DONT_THROW_SCORE);
                     gameCube.CanThrowCube = false;
                 }
             }
         }
 
         public int GetLastThrowScore() {
-            throw new System.NotImplementedException();
+            return Cubes.Where(gc => gc.GetLastThrowResult() != CUBE_DONT_THROW_SCORE).Sum(gc => gc.GetLastThrowResult());
         }
+
+        public IList<ThrowResults> GetLastScoreForAllCubes() {
+            return  Cubes.Select(gameCube => new ThrowResults()
+                {CubeID = gameCube.CubeGameID, ThrowResult = gameCube.GetLastThrowResult()}).ToList();
+        } 
     }
 }

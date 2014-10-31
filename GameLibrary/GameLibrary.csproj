@@ -52,6 +52,7 @@
     <Compile Include="GameTools\GameCube.cs" />
     <Compile Include="GameTools\GameSetUp.cs" />
     <Compile Include="GameTools\Player.cs" />
+    <Compile Include="GameTools\ThrowResults.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

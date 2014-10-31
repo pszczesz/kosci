@@ -13,7 +13,7 @@ namespace GameLibrary.GameTools {
         private int _cubeSide;
         private int _cubeCount;
         public GameSetUp(IList<IPlayer> players, int cubeSide=StandardCubeSide, int cubeCount=StandardCubeCount) {
-            _players = players ?? new List<IPlayer>(){new Player("Standard",0)};
+            _players = players ?? new List<IPlayer>(){new Player("Standard")};
             _cubeSide = cubeSide;
             _cubeCount = cubeCount;
             _random = new Random();
