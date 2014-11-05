@@ -6,19 +6,35 @@ using GameLibrary.GameTools;
 namespace GameLibrary.Concrete {
     public class Game : IGame {
         private Random random;
+        private IList<ThrowCubes> _gameRounds;
+        private IList<IPlayer> _players; 
 
         public Game() {
             GameSetUp gameSetUp = new GameSetUp(null);
             random = gameSetUp.GetRandom();
+            _players = gameSetUp.GetPlayers();
             SetCubeGame();
+            _gameRounds = new List<ThrowCubes>();
         }
 
-        public Game(IList<IPlayer> players, int cubesSide, int cubesCount) {
+        public Game(IList<IPlayer> players, int cubesSide=6, int cubesCount=5) {
             GameSetUp gameSetUp = new GameSetUp(players, cubesSide, cubesCount);
             random = gameSetUp.GetRandom();
+            _players = gameSetUp.GetPlayers();
             SetCubeGame(cubesSide,cubesCount);
+            _gameRounds = new List<ThrowCubes>();
         }
 
+        public IList<IPlayer> Players {
+            get { return _players; }
+        } 
+        public void MakeOneRound(IPlayer player) {
+            ThrowCubes throwCubes = new ThrowCubes(_cubes);
+            _gameRounds.Add(throwCubes);
+            player.SetOfThrows.Add(throwCubes);
+            throwCubes.PerformOneThrow();
+
+        }
         private void SetCubeGame(int cubeSide = 6, int cubeCount = 5) {
             _cubes = new List<GameCube>();
             for (int i = 0; i < cubeCount; i++) {

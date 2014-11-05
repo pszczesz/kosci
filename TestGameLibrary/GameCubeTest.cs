@@ -70,9 +70,12 @@ namespace TestGameLibrary {
         [TestMethod]
         public void CanThrowGameCubeWhenWanted() {
             GameCube gameCube = new GameCube(new Cube(5, new Random()));
+            gameCube.PerformOneThrow();
             gameCube.CanThrowCube = true;
-
+            Assert.IsTrue(gameCube.CanThrowNextTime());
         }
+
+      
 
     }
 }
