@@ -38,8 +38,6 @@ namespace GameLibrary.Concrete {
         private IList<GameCube> _cubes;
         public bool IsStarted { get; set; }
 
-        public IList<GameCube> Cubes {
-            get { return _cubes; }
-        }
+        public IList<GameCube> Cubes => _cubes;
     }
 }

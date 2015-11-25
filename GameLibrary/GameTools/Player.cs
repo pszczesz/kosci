@@ -10,6 +10,7 @@ namespace GameLibrary.GameTools {
         public Player(string name) {
             _name = name;
             _score = 0;
+            _setOfThrows = new List<ThrowCubes>();
 
         }
         public string Name {

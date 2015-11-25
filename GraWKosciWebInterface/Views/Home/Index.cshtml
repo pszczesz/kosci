@@ -1,0 +1,13 @@
+﻿@model GraWKosciWebInterface.Models.Concrete.WebGame
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Losowanie w grze</h2>
+<p>W grze wylosowano dla pracza: @Model.Players[0].Name</p>
+<ul>
+    @foreach (var wynik in @Model.Game.Cubes) {
+        <li>Wynik dla kostki @wynik.GetLastThrowResult()</li>
+    }
+</ul>
