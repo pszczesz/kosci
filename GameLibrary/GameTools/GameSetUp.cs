@@ -19,6 +19,10 @@ namespace GameLibrary.GameTools {
             _random = new Random();
         }
 
+        public IList<IPlayer> GetPlayers() {
+            return _players;
+        } 
+
         public Random GetRandom() {
             return _random;
         }
