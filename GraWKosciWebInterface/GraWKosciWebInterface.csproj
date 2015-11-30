@@ -123,6 +123,11 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\web.config" />
+    <Content Include="Views\SqlPlayers\Create.cshtml" />
+    <Content Include="Views\SqlPlayers\Delete.cshtml" />
+    <Content Include="Views\SqlPlayers\Details.cshtml" />
+    <Content Include="Views\SqlPlayers\Edit.cshtml" />
+    <Content Include="Views\SqlPlayers\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -166,6 +171,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SqlPlayersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -181,6 +187,10 @@
     <ProjectReference Include="..\GameLibrary\GameLibrary.csproj">
       <Project>{1573af98-f9c8-4515-9a4f-7e59160b28d6}</Project>
       <Name>GameLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GraWKosci.DAL\GraWKosci.DAL.csproj">
+      <Project>{032aad93-93dc-498a-8ff2-6063de68f699}</Project>
+      <Name>GraWKosci.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

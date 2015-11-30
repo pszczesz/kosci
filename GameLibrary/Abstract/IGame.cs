@@ -7,6 +7,7 @@ namespace GameLibrary.Abstract {
         bool IsStarted { get; set; }
         IList<GameCube> Cubes { get; }
         void MakeOneRound(IPlayer player);
+        IList<IPlayer> Players { get; }
 
     }
 }

@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestGameLibrary", "TestGame
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraWKosciWebInterface", "GraWKosciWebInterface\GraWKosciWebInterface.csproj", "{BE20032C-8577-4089-8B8C-617057430E30}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraWKosci.DAL", "GraWKosci.DAL\GraWKosci.DAL.csproj", "{032AAD93-93DC-498A-8FF2-6063DE68F699}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraWKosci.WpfUI", "GraWKosci.WpfUI\GraWKosci.WpfUI.csproj", "{5BE8BFB5-8B91-4FA3-887F-F113A0F02062}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{BE20032C-8577-4089-8B8C-617057430E30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE20032C-8577-4089-8B8C-617057430E30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE20032C-8577-4089-8B8C-617057430E30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{032AAD93-93DC-498A-8FF2-6063DE68F699}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{032AAD93-93DC-498A-8FF2-6063DE68F699}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{032AAD93-93DC-498A-8FF2-6063DE68F699}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{032AAD93-93DC-498A-8FF2-6063DE68F699}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BE8BFB5-8B91-4FA3-887F-F113A0F02062}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BE8BFB5-8B91-4FA3-887F-F113A0F02062}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BE8BFB5-8B91-4FA3-887F-F113A0F02062}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BE8BFB5-8B91-4FA3-887F-F113A0F02062}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

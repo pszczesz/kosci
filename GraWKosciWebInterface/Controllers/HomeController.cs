@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using GameLibrary.Abstract;
 using GameLibrary.GameTools;
+using GraWKosci.DAL;
 using GraWKosciWebInterface.Models.Concrete;
 
 namespace GraWKosciWebInterface.Controllers
@@ -16,8 +17,9 @@ namespace GraWKosciWebInterface.Controllers
         private WebGame game;
         private IList<IPlayer> players;
         public HomeController() {
-            players = new List<IPlayer>();
-            players.Add(new Player("test1"));
+            players = new List<IPlayer> {new Player("test1")};
+           
+
             game = new WebGame(players);
         }
         // GET: Home
