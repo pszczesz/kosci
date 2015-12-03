@@ -5,8 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GraWKosci.WpfUI.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="300">
+        Title="Gra w Kości" FontSize="{StaticResource DefaultFontSize}"
+        WindowState="Maximized"
+        Background="DarkOliveGreen">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Margin="10" Foreground="Wheat" FontSize="40" Grid.ColumnSpan="3">
+            <Bold Foreground="DarkGray">Gra w kości</Bold>
+        </TextBlock>
+        <StackPanel Background="#333333" Grid.Row="1" Grid.Column="0">
+            <Button Command="{Binding StartGame}"
+                    ToolTip="Rozpocznij Grę" 
+                    Margin="10"
+                    Padding="5" Width="Auto"
+                    
+                    >Rozpocznij Grę</Button>
+
+        </StackPanel>
     </Grid>
 </Window>

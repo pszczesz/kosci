@@ -1,5 +1,5 @@
 ﻿namespace GraWKosci.WpfUI.ViewModel {
-    public class MainViewModel {
+    public class MainViewModel :Observable {
          
     }
 }
