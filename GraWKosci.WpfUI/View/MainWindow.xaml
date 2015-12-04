@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="Gra w Kości" FontSize="{StaticResource DefaultFontSize}"
         WindowState="Maximized"
-        Background="DarkOliveGreen">
+        Background="DarkOliveGreen"
+        >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"></ColumnDefinition>
@@ -27,7 +28,7 @@
                     ToolTip="Rozpocznij Grę" 
                     Margin="10"
                     Padding="5" Width="Auto"
-                    
+                    Foreground="{StaticResource MyDefaultForegrounfBrush}"
                     >Rozpocznij Grę</Button>
 
         </StackPanel>
