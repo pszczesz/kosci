@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:view="clr-namespace:GraWKosci.WpfUI.View"
         xmlns:local="clr-namespace:GraWKosci.WpfUI.View"
         mc:Ignorable="d"
         Title="Gra w Kości" FontSize="{StaticResource DefaultFontSize}"
@@ -24,13 +25,48 @@
             <Bold Foreground="DarkGray">Gra w kości</Bold>
         </TextBlock>
         <StackPanel Background="#333333" Grid.Row="1" Grid.Column="0">
-            <Button Command="{Binding StartGame}"
+            <Button Command="{Binding NewGamerAddCommand}"
+                    ToolTip="Dodaj Gracza" 
+                    Margin="5"
+                    Padding="5" Width="Auto"
+                    Foreground="{StaticResource MyDefaultForegrounfBrush}"
+                    >Dodaj Gracza</Button>
+            <Button Command="{Binding NewGameCommand}"
                     ToolTip="Rozpocznij Grę" 
-                    Margin="10"
+                    Margin="5"
                     Padding="5" Width="Auto"
                     Foreground="{StaticResource MyDefaultForegrounfBrush}"
                     >Rozpocznij Grę</Button>
+            <Button Command="{Binding ExitCommand}"
+                    ToolTip="Wyjście z gry" 
+                    Margin="5"
+                    Padding="5" Width="Auto"
+                    Foreground="{StaticResource MyDefaultForegrounfBrush}"
+                    >Wyjdź</Button>
 
         </StackPanel>
+        <TabControl ItemsSource="{Binding Tabs}"
+            Grid.Row="1" 
+            Grid.Column="1"
+            Grid.RowSpan="2"
+            Background="BurlyWood">
+            <TabControl.ItemContainerStyle>
+                <Style TargetType="TabItem">
+                    <Style.Triggers>
+                        
+                    </Style.Triggers>
+                </Style>
+            </TabControl.ItemContainerStyle>
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Header}"/>
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+            <TabControl.ContentTemplate>
+                <DataTemplate>
+                    <view:GameView/>
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+        </TabControl>
     </Grid>
 </Window>

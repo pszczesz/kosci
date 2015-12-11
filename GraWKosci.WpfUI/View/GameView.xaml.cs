@@ -10,20 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using GraWKosci.WpfUI.ViewModel;
 
 namespace GraWKosci.WpfUI.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for GameView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class GameView : UserControl
     {
-        public MainWindow(MainViewModel mainViewModel)
+        public GameView()
         {
             InitializeComponent();
-            DataContext = mainViewModel;
         }
     }
 }

@@ -21,7 +21,7 @@ namespace GraWKosci.WpfUI
             base.OnStartup(e);
             var bootstrapper = new Bootstrapper();
             IContainer container = bootstrapper.Bootstrap();
-            var mainViewModel = new MainViewModel();
+            var mainViewModel = container.Resolve<MainViewModel>();
             MainWindow = new MainWindow(mainViewModel);
             MainWindow.Show();
         }
